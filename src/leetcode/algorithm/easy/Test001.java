@@ -1,14 +1,65 @@
 package leetcode.algorithm.easy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * Á½ÊıÖ®ºÍ
- * ¸ø¶¨Ò»¸öÕûÊıÊı×é nums ºÍÒ»¸öÄ¿±êÖµ target£¬ÇëÄãÔÚ¸ÃÊı×éÖĞÕÒ³öºÍÎªÄ¿±êÖµµÄÄÇ Á½¸ö ÕûÊı£¬²¢·µ»ØËûÃÇµÄÊı×éÏÂ±ê¡£
- Äã¿ÉÒÔ¼ÙÉèÃ¿ÖÖÊäÈëÖ»»á¶ÔÓ¦Ò»¸ö´ğ°¸¡£µ«ÊÇ£¬Äã²»ÄÜÖØ¸´ÀûÓÃÕâ¸öÊı×éÖĞÍ¬ÑùµÄÔªËØ¡£
- * Ê¾Àı:
- ¸ø¶¨ nums = [2, 7, 11, 15], target = 9
- ÒòÎª nums[0] + nums[1] = 2 + 7 = 9
- ËùÒÔ·µ»Ø [0, 1]
+ * ä¸¤æ•°ä¹‹å’Œ
+ * ç»™å®šä¸€ä¸ªæ•´æ•°æ•°ç»„ nums å’Œä¸€ä¸ªç›®æ ‡å€¼ targetï¼Œè¯·ä½ åœ¨è¯¥æ•°ç»„ä¸­æ‰¾å‡ºå’Œä¸ºç›®æ ‡å€¼çš„é‚£ ä¸¤ä¸ª æ•´æ•°ï¼Œå¹¶è¿”å›ä»–ä»¬çš„æ•°ç»„ä¸‹æ ‡ã€‚
+ ä½ å¯ä»¥å‡è®¾æ¯ç§è¾“å…¥åªä¼šå¯¹åº”ä¸€ä¸ªç­”æ¡ˆã€‚ä½†æ˜¯ï¼Œä½ ä¸èƒ½é‡å¤åˆ©ç”¨è¿™ä¸ªæ•°ç»„ä¸­åŒæ ·çš„å…ƒç´ ã€‚
+ * ç¤ºä¾‹:
+ ç»™å®š nums = [2, 7, 11, 15], target = 9
+ å› ä¸º nums[0] + nums[1] = 2 + 7 = 9
+ æ‰€ä»¥è¿”å› [0, 1]
  * Created by harrysa66 on 2019/1/28.
  */
 public class Test001 {
+
+    /**
+     * æš´åŠ›æ³•
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static int[] twoSum(int[] nums, int target) {
+        int[] total = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                int num = nums[i] + nums[j];
+                if (num == target){
+                    total[0] = i;
+                    total[1] = j;
+                    break;
+                }
+            }
+        }
+        return total;
+    }
+
+    /**
+     * ä¸€éå“ˆå¸Œè¡¨
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static int[] twoSumMap(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int key = target - nums[i];
+            if(map.containsKey(key)){
+                return new int[]{ map.get(key), i};
+            }
+            map.put(nums[i],i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] twoSum = twoSumMap(nums, target);
+        for (int sum : twoSum) {
+            System.out.println(sum);
+        }
+    }
 }
