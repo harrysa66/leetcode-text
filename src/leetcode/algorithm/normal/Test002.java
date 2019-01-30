@@ -12,6 +12,12 @@ package leetcode.algorithm.normal;
  */
 public class Test002 {
 
+    static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+
     private int carry = 0;
 
     /**
@@ -73,10 +79,4 @@ public class Test002 {
         System.out.println(listNode.next.val);
         System.out.println(listNode.next.next.val);
     }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
 }
