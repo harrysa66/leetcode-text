@@ -40,19 +40,23 @@ public class Test606 {
             return "";
         }
         StringBuilder builder = new StringBuilder();
+        builderNode(builder, t);
+        String s = builder.toString();
+        return s.substring(1, s.length() - 1);
+    }
+
+    public void builderNode(StringBuilder builder, TreeNode t){
         builder.append("(").append(t.val);
         if(t.left != null){
-            builder.append("(").append(tree2str(t.left)).append(")");
+            builderNode(builder, t.left);
         }
         if(t.right != null){
             if(t.left == null){
                 builder.append("()");
             }
-            builder.append("(").append(tree2str(t.right)).append(")");
+            builderNode(builder, t.right);
         }
         builder.append(")");
-        String s = builder.toString();
-        return s.substring(1, s.length()-1);
     }
 
     public static void main(String[] args) {
