@@ -1,5 +1,7 @@
 package leetcode.algorithm.easy;
 
+import leetcode.vo.TreeNode;
+
 /**
  * 根据二叉树创建字符串
  * 你需要采用前序遍历的方式，将一个二叉树转换成一个由括号和整数组成的字符串。
@@ -29,12 +31,6 @@ package leetcode.algorithm.easy;
  */
 public class Test606 {
 
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
     public String tree2str(TreeNode t) {
         if(t == null){
             return "";

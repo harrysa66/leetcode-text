@@ -1,5 +1,7 @@
 package leetcode.algorithm.normal;
 
+import leetcode.vo.ListNode;
+
 /**
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
  如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
@@ -11,12 +13,6 @@ package leetcode.algorithm.normal;
  * Created by harrysa66 on 2019/1/28.
  */
 public class Test002 {
-
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 
     private int carry = 0;
 
