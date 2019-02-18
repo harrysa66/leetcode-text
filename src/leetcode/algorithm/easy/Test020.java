@@ -39,11 +39,7 @@ public class Test020 {
         for (int i = 0; i < s.length(); i++) {
             switch (s.charAt(i)){
                 case '(':
-                    deque.addLast(s.charAt(i));
-                    break;
                 case '[':
-                    deque.addLast(s.charAt(i));
-                    break;
                 case '{':
                     deque.addLast(s.charAt(i));
                     break;
